@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:palestine_console/palestine_console.dart';
+import 'package:spacexplorer/core/routing/routes.dart';
+import 'package:spacexplorer/features/launches/view/launches_screen.dart';
 
 final routerProvider = Provider<GoRouter>(
   (ref) => GoRouter(
-    initialLocation: '/',
+    initialLocation: Routes.home,
     observers: [],
     redirect: (context, state) {
       Print.green('ROUTER REDIRECT: ${state.location}', name: 'APP');
@@ -13,52 +15,17 @@ final routerProvider = Provider<GoRouter>(
     },
     routes: [
       GoRoute(
-        path: '/',
+        path: Routes.home,
         pageBuilder: (BuildContext context, GoRouterState state) =>
-            const MaterialPage(child: Screen()),
+            const MaterialPage(child: LaunchesScreen()),
       ),
-      GoRoute(
-        path: '/page-with-parameter/:id',
-        pageBuilder: (BuildContext context, GoRouterState state) {
-          final id = int.parse(state.params['id']!);
-          return MaterialPage(child: Screen(id: id));
-        },
-      ),
+      // GoRoute(
+      //   path: '/page-with-parameter/:id',
+      //   pageBuilder: (BuildContext context, GoRouterState state) {
+      //     final id = int.parse(state.params['id']!);
+      //     return MaterialPage(child: Screen(id: id));
+      //   },
+      // ),
     ],
   ),
 );
-
-class Screen extends StatelessWidget {
-  const Screen({this.id, super.key});
-
-  final int? id;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Screen ${id ?? ''}'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                id != null ? 'id: $id' : 'no id',
-              ),
-            ],
-          ),
-          if (GoRouter.of(context).location == '/')
-            ElevatedButton(
-              onPressed: () {
-                context.push('/page-with-parameter/1');
-              },
-              child: const Text('Go to /page-with-parameter/1'),
-            ),
-        ],
-      ),
-    );
-  }
-}

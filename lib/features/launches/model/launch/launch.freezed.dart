@@ -26,6 +26,7 @@ mixin _$Launch {
   String get rocket => throw _privateConstructorUsedError;
   List<LaunchFailure> get failures => throw _privateConstructorUsedError;
   LaunchLinks get links => throw _privateConstructorUsedError;
+  List<String> get crew => throw _privateConstructorUsedError;
   String? get details => throw _privateConstructorUsedError;
   bool? get success => throw _privateConstructorUsedError;
   @JsonKey(name: 'date_local')
@@ -50,6 +51,7 @@ abstract class $LaunchCopyWith<$Res> {
       String rocket,
       List<LaunchFailure> failures,
       LaunchLinks links,
+      List<String> crew,
       String? details,
       bool? success,
       @JsonKey(name: 'date_local') DateTime dateLocal,
@@ -77,6 +79,7 @@ class _$LaunchCopyWithImpl<$Res, $Val extends Launch>
     Object? rocket = null,
     Object? failures = null,
     Object? links = null,
+    Object? crew = null,
     Object? details = freezed,
     Object? success = freezed,
     Object? dateLocal = null,
@@ -107,6 +110,10 @@ class _$LaunchCopyWithImpl<$Res, $Val extends Launch>
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as LaunchLinks,
+      crew: null == crew
+          ? _value.crew
+          : crew // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
@@ -148,6 +155,7 @@ abstract class _$$_LaunchCopyWith<$Res> implements $LaunchCopyWith<$Res> {
       String rocket,
       List<LaunchFailure> failures,
       LaunchLinks links,
+      List<String> crew,
       String? details,
       bool? success,
       @JsonKey(name: 'date_local') DateTime dateLocal,
@@ -173,6 +181,7 @@ class __$$_LaunchCopyWithImpl<$Res>
     Object? rocket = null,
     Object? failures = null,
     Object? links = null,
+    Object? crew = null,
     Object? details = freezed,
     Object? success = freezed,
     Object? dateLocal = null,
@@ -203,6 +212,10 @@ class __$$_LaunchCopyWithImpl<$Res>
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as LaunchLinks,
+      crew: null == crew
+          ? _value._crew
+          : crew // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       details: freezed == details
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
@@ -233,11 +246,13 @@ class _$_Launch extends _Launch {
       required this.rocket,
       required final List<LaunchFailure> failures,
       required this.links,
+      required final List<String> crew,
       this.details,
       this.success,
       @JsonKey(name: 'date_local') required this.dateLocal,
       @JsonKey(name: 'flight_number') required this.flightNumber})
       : _failures = failures,
+        _crew = crew,
         super._();
 
   factory _$_Launch.fromJson(Map<String, dynamic> json) =>
@@ -261,6 +276,14 @@ class _$_Launch extends _Launch {
 
   @override
   final LaunchLinks links;
+  final List<String> _crew;
+  @override
+  List<String> get crew {
+    if (_crew is EqualUnmodifiableListView) return _crew;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_crew);
+  }
+
   @override
   final String? details;
   @override
@@ -274,7 +297,7 @@ class _$_Launch extends _Launch {
 
   @override
   String toString() {
-    return 'Launch(id: $id, name: $name, upcoming: $upcoming, rocket: $rocket, failures: $failures, links: $links, details: $details, success: $success, dateLocal: $dateLocal, flightNumber: $flightNumber)';
+    return 'Launch(id: $id, name: $name, upcoming: $upcoming, rocket: $rocket, failures: $failures, links: $links, crew: $crew, details: $details, success: $success, dateLocal: $dateLocal, flightNumber: $flightNumber)';
   }
 
   @override
@@ -289,6 +312,7 @@ class _$_Launch extends _Launch {
             (identical(other.rocket, rocket) || other.rocket == rocket) &&
             const DeepCollectionEquality().equals(other._failures, _failures) &&
             (identical(other.links, links) || other.links == links) &&
+            const DeepCollectionEquality().equals(other._crew, _crew) &&
             (identical(other.details, details) || other.details == details) &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.dateLocal, dateLocal) ||
@@ -307,6 +331,7 @@ class _$_Launch extends _Launch {
       rocket,
       const DeepCollectionEquality().hash(_failures),
       links,
+      const DeepCollectionEquality().hash(_crew),
       details,
       success,
       dateLocal,
@@ -334,6 +359,7 @@ abstract class _Launch extends Launch {
           required final String rocket,
           required final List<LaunchFailure> failures,
           required final LaunchLinks links,
+          required final List<String> crew,
           final String? details,
           final bool? success,
           @JsonKey(name: 'date_local') required final DateTime dateLocal,
@@ -355,6 +381,8 @@ abstract class _Launch extends Launch {
   List<LaunchFailure> get failures;
   @override
   LaunchLinks get links;
+  @override
+  List<String> get crew;
   @override
   String? get details;
   @override

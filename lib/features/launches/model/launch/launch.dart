@@ -15,6 +15,7 @@ class Launch with _$Launch implements Identifiable {
     required String rocket,
     required List<LaunchFailure> failures,
     required LaunchLinks links,
+    required List<String> crew,
     String? details,
     bool? success,
     @JsonKey(name: 'date_local') required DateTime dateLocal,

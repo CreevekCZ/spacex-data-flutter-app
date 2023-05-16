@@ -15,6 +15,7 @@ _$_Launch _$$_LaunchFromJson(Map<String, dynamic> json) => _$_Launch(
           .map((e) => LaunchFailure.fromJson(e as Map<String, dynamic>))
           .toList(),
       links: LaunchLinks.fromJson(json['links'] as Map<String, dynamic>),
+      crew: (json['crew'] as List<dynamic>).map((e) => e as String).toList(),
       details: json['details'] as String?,
       success: json['success'] as bool?,
       dateLocal: DateTime.parse(json['date_local'] as String),
@@ -28,6 +29,7 @@ Map<String, dynamic> _$$_LaunchToJson(_$_Launch instance) => <String, dynamic>{
       'rocket': instance.rocket,
       'failures': instance.failures,
       'links': instance.links,
+      'crew': instance.crew,
       'details': instance.details,
       'success': instance.success,
       'date_local': instance.dateLocal.toIso8601String(),
