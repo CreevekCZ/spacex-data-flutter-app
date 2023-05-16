@@ -3,6 +3,74 @@
 part of 'launch.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class LaunchAdapter extends TypeAdapter<_$_Launch> {
+  @override
+  final int typeId = 2;
+
+  @override
+  _$_Launch read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return _$_Launch(
+      id: fields[0] as String,
+      name: fields[1] as String,
+      upcoming: fields[2] as bool,
+      rocket: fields[3] as String,
+      failures: (fields[4] as List).cast<LaunchFailure>(),
+      links: fields[5] as LaunchLinks,
+      crew: (fields[6] as List).cast<String>(),
+      details: fields[7] as String?,
+      success: fields[8] as bool?,
+      dateLocal: fields[9] as DateTime,
+      flightNumber: fields[10] as int,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, _$_Launch obj) {
+    writer
+      ..writeByte(11)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.name)
+      ..writeByte(2)
+      ..write(obj.upcoming)
+      ..writeByte(3)
+      ..write(obj.rocket)
+      ..writeByte(5)
+      ..write(obj.links)
+      ..writeByte(7)
+      ..write(obj.details)
+      ..writeByte(8)
+      ..write(obj.success)
+      ..writeByte(9)
+      ..write(obj.dateLocal)
+      ..writeByte(10)
+      ..write(obj.flightNumber)
+      ..writeByte(4)
+      ..write(obj.failures)
+      ..writeByte(6)
+      ..write(obj.crew);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is LaunchAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

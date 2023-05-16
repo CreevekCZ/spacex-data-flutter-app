@@ -20,8 +20,11 @@ LaunchFailure _$LaunchFailureFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LaunchFailure {
+  @HiveField(0)
   int get time => throw _privateConstructorUsedError;
+  @HiveField(1)
   int? get altitude => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get reason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +39,10 @@ abstract class $LaunchFailureCopyWith<$Res> {
           LaunchFailure value, $Res Function(LaunchFailure) then) =
       _$LaunchFailureCopyWithImpl<$Res, LaunchFailure>;
   @useResult
-  $Res call({int time, int? altitude, String reason});
+  $Res call(
+      {@HiveField(0) int time,
+      @HiveField(1) int? altitude,
+      @HiveField(2) String reason});
 }
 
 /// @nodoc
@@ -81,7 +87,10 @@ abstract class _$$_LaunchFailureCopyWith<$Res>
       __$$_LaunchFailureCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int time, int? altitude, String reason});
+  $Res call(
+      {@HiveField(0) int time,
+      @HiveField(1) int? altitude,
+      @HiveField(2) String reason});
 }
 
 /// @nodoc
@@ -118,18 +127,24 @@ class __$$_LaunchFailureCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 3, adapterName: 'LaunchFailureAdapter')
 class _$_LaunchFailure implements _LaunchFailure {
   const _$_LaunchFailure(
-      {required this.time, required this.altitude, required this.reason});
+      {@HiveField(0) required this.time,
+      @HiveField(1) this.altitude,
+      @HiveField(2) required this.reason});
 
   factory _$_LaunchFailure.fromJson(Map<String, dynamic> json) =>
       _$$_LaunchFailureFromJson(json);
 
   @override
+  @HiveField(0)
   final int time;
   @override
+  @HiveField(1)
   final int? altitude;
   @override
+  @HiveField(2)
   final String reason;
 
   @override
@@ -168,18 +183,21 @@ class _$_LaunchFailure implements _LaunchFailure {
 
 abstract class _LaunchFailure implements LaunchFailure {
   const factory _LaunchFailure(
-      {required final int time,
-      required final int? altitude,
-      required final String reason}) = _$_LaunchFailure;
+      {@HiveField(0) required final int time,
+      @HiveField(1) final int? altitude,
+      @HiveField(2) required final String reason}) = _$_LaunchFailure;
 
   factory _LaunchFailure.fromJson(Map<String, dynamic> json) =
       _$_LaunchFailure.fromJson;
 
   @override
+  @HiveField(0)
   int get time;
   @override
+  @HiveField(1)
   int? get altitude;
   @override
+  @HiveField(2)
   String get reason;
   @override
   @JsonKey(ignore: true)

@@ -20,7 +20,9 @@ LaunchPatch _$LaunchPatchFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LaunchPatch {
+  @HiveField(0)
   String? get small => throw _privateConstructorUsedError;
+  @HiveField(1)
   String? get large => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +37,7 @@ abstract class $LaunchPatchCopyWith<$Res> {
           LaunchPatch value, $Res Function(LaunchPatch) then) =
       _$LaunchPatchCopyWithImpl<$Res, LaunchPatch>;
   @useResult
-  $Res call({String? small, String? large});
+  $Res call({@HiveField(0) String? small, @HiveField(1) String? large});
 }
 
 /// @nodoc
@@ -75,7 +77,7 @@ abstract class _$$_LaunchPatchCopyWith<$Res>
       __$$_LaunchPatchCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? small, String? large});
+  $Res call({@HiveField(0) String? small, @HiveField(1) String? large});
 }
 
 /// @nodoc
@@ -107,15 +109,18 @@ class __$$_LaunchPatchCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 5, adapterName: 'LaunchPatchAdapter')
 class _$_LaunchPatch implements _LaunchPatch {
-  const _$_LaunchPatch({this.small, this.large});
+  const _$_LaunchPatch({@HiveField(0) this.small, @HiveField(1) this.large});
 
   factory _$_LaunchPatch.fromJson(Map<String, dynamic> json) =>
       _$$_LaunchPatchFromJson(json);
 
   @override
+  @HiveField(0)
   final String? small;
   @override
+  @HiveField(1)
   final String? large;
 
   @override
@@ -151,15 +156,18 @@ class _$_LaunchPatch implements _LaunchPatch {
 }
 
 abstract class _LaunchPatch implements LaunchPatch {
-  const factory _LaunchPatch({final String? small, final String? large}) =
-      _$_LaunchPatch;
+  const factory _LaunchPatch(
+      {@HiveField(0) final String? small,
+      @HiveField(1) final String? large}) = _$_LaunchPatch;
 
   factory _LaunchPatch.fromJson(Map<String, dynamic> json) =
       _$_LaunchPatch.fromJson;
 
   @override
+  @HiveField(0)
   String? get small;
   @override
+  @HiveField(1)
   String? get large;
   @override
   @JsonKey(ignore: true)

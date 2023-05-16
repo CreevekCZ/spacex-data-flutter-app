@@ -20,10 +20,14 @@ LaunchLinks _$LaunchLinksFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LaunchLinks {
+  @HiveField(0)
   LaunchPatch? get patch => throw _privateConstructorUsedError;
+  @HiveField(1)
   String? get article => throw _privateConstructorUsedError;
+  @HiveField(2)
   String? get wikipedia => throw _privateConstructorUsedError;
   @JsonKey(name: 'youtube_id')
+  @HiveField(3)
   String? get youtubeId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,10 +43,10 @@ abstract class $LaunchLinksCopyWith<$Res> {
       _$LaunchLinksCopyWithImpl<$Res, LaunchLinks>;
   @useResult
   $Res call(
-      {LaunchPatch? patch,
-      String? article,
-      String? wikipedia,
-      @JsonKey(name: 'youtube_id') String? youtubeId});
+      {@HiveField(0) LaunchPatch? patch,
+      @HiveField(1) String? article,
+      @HiveField(2) String? wikipedia,
+      @JsonKey(name: 'youtube_id') @HiveField(3) String? youtubeId});
 
   $LaunchPatchCopyWith<$Res>? get patch;
 }
@@ -107,10 +111,10 @@ abstract class _$$_LaunchLinksCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {LaunchPatch? patch,
-      String? article,
-      String? wikipedia,
-      @JsonKey(name: 'youtube_id') String? youtubeId});
+      {@HiveField(0) LaunchPatch? patch,
+      @HiveField(1) String? article,
+      @HiveField(2) String? wikipedia,
+      @JsonKey(name: 'youtube_id') @HiveField(3) String? youtubeId});
 
   @override
   $LaunchPatchCopyWith<$Res>? get patch;
@@ -155,24 +159,29 @@ class __$$_LaunchLinksCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 4, adapterName: 'LaunchLinksAdapter')
 class _$_LaunchLinks implements _LaunchLinks {
   const _$_LaunchLinks(
-      {this.patch,
-      this.article,
-      this.wikipedia,
-      @JsonKey(name: 'youtube_id') this.youtubeId});
+      {@HiveField(0) this.patch,
+      @HiveField(1) this.article,
+      @HiveField(2) this.wikipedia,
+      @JsonKey(name: 'youtube_id') @HiveField(3) this.youtubeId});
 
   factory _$_LaunchLinks.fromJson(Map<String, dynamic> json) =>
       _$$_LaunchLinksFromJson(json);
 
   @override
+  @HiveField(0)
   final LaunchPatch? patch;
   @override
+  @HiveField(1)
   final String? article;
   @override
+  @HiveField(2)
   final String? wikipedia;
   @override
   @JsonKey(name: 'youtube_id')
+  @HiveField(3)
   final String? youtubeId;
 
   @override
@@ -214,22 +223,27 @@ class _$_LaunchLinks implements _LaunchLinks {
 
 abstract class _LaunchLinks implements LaunchLinks {
   const factory _LaunchLinks(
-      {final LaunchPatch? patch,
-      final String? article,
-      final String? wikipedia,
-      @JsonKey(name: 'youtube_id') final String? youtubeId}) = _$_LaunchLinks;
+          {@HiveField(0) final LaunchPatch? patch,
+          @HiveField(1) final String? article,
+          @HiveField(2) final String? wikipedia,
+          @JsonKey(name: 'youtube_id') @HiveField(3) final String? youtubeId}) =
+      _$_LaunchLinks;
 
   factory _LaunchLinks.fromJson(Map<String, dynamic> json) =
       _$_LaunchLinks.fromJson;
 
   @override
+  @HiveField(0)
   LaunchPatch? get patch;
   @override
+  @HiveField(1)
   String? get article;
   @override
+  @HiveField(2)
   String? get wikipedia;
   @override
   @JsonKey(name: 'youtube_id')
+  @HiveField(3)
   String? get youtubeId;
   @override
   @JsonKey(ignore: true)

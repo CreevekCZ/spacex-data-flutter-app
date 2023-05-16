@@ -20,17 +20,28 @@ Launch _$LaunchFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Launch {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   bool get upcoming => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get rocket => throw _privateConstructorUsedError;
+  @HiveField(4)
   List<LaunchFailure> get failures => throw _privateConstructorUsedError;
+  @HiveField(5)
   LaunchLinks get links => throw _privateConstructorUsedError;
+  @HiveField(6)
   List<String> get crew => throw _privateConstructorUsedError;
+  @HiveField(7)
   String? get details => throw _privateConstructorUsedError;
+  @HiveField(8)
   bool? get success => throw _privateConstructorUsedError;
+  @HiveField(9)
   @JsonKey(name: 'date_local')
   DateTime get dateLocal => throw _privateConstructorUsedError;
+  @HiveField(10)
   @JsonKey(name: 'flight_number')
   int get flightNumber => throw _privateConstructorUsedError;
 
@@ -45,17 +56,17 @@ abstract class $LaunchCopyWith<$Res> {
       _$LaunchCopyWithImpl<$Res, Launch>;
   @useResult
   $Res call(
-      {String id,
-      String name,
-      bool upcoming,
-      String rocket,
-      List<LaunchFailure> failures,
-      LaunchLinks links,
-      List<String> crew,
-      String? details,
-      bool? success,
-      @JsonKey(name: 'date_local') DateTime dateLocal,
-      @JsonKey(name: 'flight_number') int flightNumber});
+      {@HiveField(0) String id,
+      @HiveField(1) String name,
+      @HiveField(2) bool upcoming,
+      @HiveField(3) String rocket,
+      @HiveField(4) List<LaunchFailure> failures,
+      @HiveField(5) LaunchLinks links,
+      @HiveField(6) List<String> crew,
+      @HiveField(7) String? details,
+      @HiveField(8) bool? success,
+      @HiveField(9) @JsonKey(name: 'date_local') DateTime dateLocal,
+      @HiveField(10) @JsonKey(name: 'flight_number') int flightNumber});
 
   $LaunchLinksCopyWith<$Res> get links;
 }
@@ -149,17 +160,17 @@ abstract class _$$_LaunchCopyWith<$Res> implements $LaunchCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String name,
-      bool upcoming,
-      String rocket,
-      List<LaunchFailure> failures,
-      LaunchLinks links,
-      List<String> crew,
-      String? details,
-      bool? success,
-      @JsonKey(name: 'date_local') DateTime dateLocal,
-      @JsonKey(name: 'flight_number') int flightNumber});
+      {@HiveField(0) String id,
+      @HiveField(1) String name,
+      @HiveField(2) bool upcoming,
+      @HiveField(3) String rocket,
+      @HiveField(4) List<LaunchFailure> failures,
+      @HiveField(5) LaunchLinks links,
+      @HiveField(6) List<String> crew,
+      @HiveField(7) String? details,
+      @HiveField(8) bool? success,
+      @HiveField(9) @JsonKey(name: 'date_local') DateTime dateLocal,
+      @HiveField(10) @JsonKey(name: 'flight_number') int flightNumber});
 
   @override
   $LaunchLinksCopyWith<$Res> get links;
@@ -238,19 +249,33 @@ class __$$_LaunchCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 2, adapterName: 'LaunchAdapter')
 class _$_Launch extends _Launch {
   const _$_Launch(
-      {required this.id,
-      required this.name,
-      required this.upcoming,
-      required this.rocket,
-      required final List<LaunchFailure> failures,
-      required this.links,
-      required final List<String> crew,
-      this.details,
-      this.success,
-      @JsonKey(name: 'date_local') required this.dateLocal,
-      @JsonKey(name: 'flight_number') required this.flightNumber})
+      {@HiveField(0)
+          required this.id,
+      @HiveField(1)
+          required this.name,
+      @HiveField(2)
+          required this.upcoming,
+      @HiveField(3)
+          required this.rocket,
+      @HiveField(4)
+          required final List<LaunchFailure> failures,
+      @HiveField(5)
+          required this.links,
+      @HiveField(6)
+          required final List<String> crew,
+      @HiveField(7)
+          this.details,
+      @HiveField(8)
+          this.success,
+      @HiveField(9)
+      @JsonKey(name: 'date_local')
+          required this.dateLocal,
+      @HiveField(10)
+      @JsonKey(name: 'flight_number')
+          required this.flightNumber})
       : _failures = failures,
         _crew = crew,
         super._();
@@ -259,15 +284,20 @@ class _$_Launch extends _Launch {
       _$$_LaunchFromJson(json);
 
   @override
+  @HiveField(0)
   final String id;
   @override
+  @HiveField(1)
   final String name;
   @override
+  @HiveField(2)
   final bool upcoming;
   @override
+  @HiveField(3)
   final String rocket;
   final List<LaunchFailure> _failures;
   @override
+  @HiveField(4)
   List<LaunchFailure> get failures {
     if (_failures is EqualUnmodifiableListView) return _failures;
     // ignore: implicit_dynamic_type
@@ -275,9 +305,11 @@ class _$_Launch extends _Launch {
   }
 
   @override
+  @HiveField(5)
   final LaunchLinks links;
   final List<String> _crew;
   @override
+  @HiveField(6)
   List<String> get crew {
     if (_crew is EqualUnmodifiableListView) return _crew;
     // ignore: implicit_dynamic_type
@@ -285,13 +317,17 @@ class _$_Launch extends _Launch {
   }
 
   @override
+  @HiveField(7)
   final String? details;
   @override
+  @HiveField(8)
   final bool? success;
   @override
+  @HiveField(9)
   @JsonKey(name: 'date_local')
   final DateTime dateLocal;
   @override
+  @HiveField(10)
   @JsonKey(name: 'flight_number')
   final int flightNumber;
 
@@ -353,44 +389,67 @@ class _$_Launch extends _Launch {
 
 abstract class _Launch extends Launch {
   const factory _Launch(
-          {required final String id,
+      {@HiveField(0)
+          required final String id,
+      @HiveField(1)
           required final String name,
+      @HiveField(2)
           required final bool upcoming,
+      @HiveField(3)
           required final String rocket,
+      @HiveField(4)
           required final List<LaunchFailure> failures,
+      @HiveField(5)
           required final LaunchLinks links,
+      @HiveField(6)
           required final List<String> crew,
+      @HiveField(7)
           final String? details,
+      @HiveField(8)
           final bool? success,
-          @JsonKey(name: 'date_local') required final DateTime dateLocal,
-          @JsonKey(name: 'flight_number') required final int flightNumber}) =
-      _$_Launch;
+      @HiveField(9)
+      @JsonKey(name: 'date_local')
+          required final DateTime dateLocal,
+      @HiveField(10)
+      @JsonKey(name: 'flight_number')
+          required final int flightNumber}) = _$_Launch;
   const _Launch._() : super._();
 
   factory _Launch.fromJson(Map<String, dynamic> json) = _$_Launch.fromJson;
 
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   bool get upcoming;
   @override
+  @HiveField(3)
   String get rocket;
   @override
+  @HiveField(4)
   List<LaunchFailure> get failures;
   @override
+  @HiveField(5)
   LaunchLinks get links;
   @override
+  @HiveField(6)
   List<String> get crew;
   @override
+  @HiveField(7)
   String? get details;
   @override
+  @HiveField(8)
   bool? get success;
   @override
+  @HiveField(9)
   @JsonKey(name: 'date_local')
   DateTime get dateLocal;
   @override
+  @HiveField(10)
   @JsonKey(name: 'flight_number')
   int get flightNumber;
   @override
