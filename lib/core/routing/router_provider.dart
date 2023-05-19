@@ -3,7 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:palestine_console/palestine_console.dart';
 import 'package:spacexplorer/core/routing/routes.dart';
-import 'package:spacexplorer/features/launches/view/launches_screen.dart';
+import 'package:spacexplorer/features/launches/view/home_screen.dart';
+import 'package:spacexplorer/features/launches/view/launch_detail_screen.dart';
 
 final routerProvider = Provider<GoRouter>(
   (ref) => GoRouter(
@@ -17,15 +18,20 @@ final routerProvider = Provider<GoRouter>(
       GoRoute(
         path: Routes.home,
         pageBuilder: (BuildContext context, GoRouterState state) =>
-            const MaterialPage(child: LaunchesScreen()),
+            const MaterialPage(child: HomeScreen()),
       ),
-      // GoRoute(
-      //   path: '/page-with-parameter/:id',
-      //   pageBuilder: (BuildContext context, GoRouterState state) {
-      //     final id = int.parse(state.params['id']!);
-      //     return MaterialPage(child: Screen(id: id));
-      //   },
-      // ),
+      GoRoute(
+        path: '${Routes.launchDetail}/:id',
+        pageBuilder: (BuildContext context, GoRouterState state) {
+          final id = state.pathParameters['id'];
+          return MaterialPage(
+            child: HeroControllerScope(
+              controller: MaterialApp.createMaterialHeroController(),
+              child: LaunchDetailScreen(launchId: id),
+            ),
+          );
+        },
+      ),
     ],
   ),
 );

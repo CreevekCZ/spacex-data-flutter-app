@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.creevekcz.spacexplorer">
    <application
-        android:label="spacexplorer"
+        android:label="SpaceXplorer"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
