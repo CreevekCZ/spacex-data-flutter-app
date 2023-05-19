@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:spacexplorer/core/helpers/interfaces/identifiable.dart';
@@ -28,8 +29,37 @@ class Launch with _$Launch implements Identifiable {
 
   factory Launch.fromJson(Map<String, dynamic> json) => _$LaunchFromJson(json);
 
-  int get year => dateLocal.year;
-
   @override
   String get identifier => id;
+
+  int get year => dateLocal.year;
+
+  String? get smallPatchUrl => links.patch?.small;
+
+  String? get largePatchUrl => links.patch?.large;
+
+  String get formatedDate =>
+      '${dateLocal.day}.${dateLocal.month}.${dateLocal.year}';
+
+  String get sucessLabel {
+    switch (success) {
+      case true:
+        return 'Success';
+      case false:
+        return 'Failure';
+      default:
+        return '–';
+    }
+  }
+
+  Color get sucessColor {
+    switch (success) {
+      case true:
+        return Colors.green;
+      case false:
+        return Colors.red;
+      default:
+        return Colors.grey;
+    }
+  }
 }

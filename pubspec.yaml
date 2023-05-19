@@ -9,6 +9,7 @@ environment:
   sdk: ">=2.19.6 <3.0.0"
 
 dependencies:
+  collection: ^1.17.1
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5
@@ -37,5 +38,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  # assets:
-  #   - assets/
+  assets:
+    - assets/
+    - assets/images/

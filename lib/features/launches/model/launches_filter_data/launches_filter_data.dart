@@ -11,5 +11,16 @@ class LaunchesFilterData with _$LaunchesFilterData {
     @HiveField(1) String? searchTerm,
     @HiveField(2) String? year,
     @HiveField(3) bool? success,
+    @HiveField(4) bool? onlyWithImages,
+    @HiveField(5) bool? hasCrew,
   }) = _LaunchesFilterData;
+
+  const LaunchesFilterData._();
+
+  bool get isFilterActive =>
+      searchTerm != null ||
+      year != null ||
+      success != null ||
+      onlyWithImages != null ||
+      hasCrew != null;
 }

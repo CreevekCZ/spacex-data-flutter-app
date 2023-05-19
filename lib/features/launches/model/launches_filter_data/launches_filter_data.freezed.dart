@@ -22,6 +22,10 @@ mixin _$LaunchesFilterData {
   String? get year => throw _privateConstructorUsedError;
   @HiveField(3)
   bool? get success => throw _privateConstructorUsedError;
+  @HiveField(4)
+  bool? get onlyWithImages => throw _privateConstructorUsedError;
+  @HiveField(5)
+  bool? get hasCrew => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LaunchesFilterDataCopyWith<LaunchesFilterData> get copyWith =>
@@ -37,7 +41,9 @@ abstract class $LaunchesFilterDataCopyWith<$Res> {
   $Res call(
       {@HiveField(1) String? searchTerm,
       @HiveField(2) String? year,
-      @HiveField(3) bool? success});
+      @HiveField(3) bool? success,
+      @HiveField(4) bool? onlyWithImages,
+      @HiveField(5) bool? hasCrew});
 }
 
 /// @nodoc
@@ -56,6 +62,8 @@ class _$LaunchesFilterDataCopyWithImpl<$Res, $Val extends LaunchesFilterData>
     Object? searchTerm = freezed,
     Object? year = freezed,
     Object? success = freezed,
+    Object? onlyWithImages = freezed,
+    Object? hasCrew = freezed,
   }) {
     return _then(_value.copyWith(
       searchTerm: freezed == searchTerm
@@ -69,6 +77,14 @@ class _$LaunchesFilterDataCopyWithImpl<$Res, $Val extends LaunchesFilterData>
       success: freezed == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      onlyWithImages: freezed == onlyWithImages
+          ? _value.onlyWithImages
+          : onlyWithImages // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      hasCrew: freezed == hasCrew
+          ? _value.hasCrew
+          : hasCrew // ignore: cast_nullable_to_non_nullable
               as bool?,
     ) as $Val);
   }
@@ -85,7 +101,9 @@ abstract class _$$_LaunchesFilterDataCopyWith<$Res>
   $Res call(
       {@HiveField(1) String? searchTerm,
       @HiveField(2) String? year,
-      @HiveField(3) bool? success});
+      @HiveField(3) bool? success,
+      @HiveField(4) bool? onlyWithImages,
+      @HiveField(5) bool? hasCrew});
 }
 
 /// @nodoc
@@ -102,6 +120,8 @@ class __$$_LaunchesFilterDataCopyWithImpl<$Res>
     Object? searchTerm = freezed,
     Object? year = freezed,
     Object? success = freezed,
+    Object? onlyWithImages = freezed,
+    Object? hasCrew = freezed,
   }) {
     return _then(_$_LaunchesFilterData(
       searchTerm: freezed == searchTerm
@@ -116,6 +136,14 @@ class __$$_LaunchesFilterDataCopyWithImpl<$Res>
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool?,
+      onlyWithImages: freezed == onlyWithImages
+          ? _value.onlyWithImages
+          : onlyWithImages // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      hasCrew: freezed == hasCrew
+          ? _value.hasCrew
+          : hasCrew // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -123,11 +151,14 @@ class __$$_LaunchesFilterDataCopyWithImpl<$Res>
 /// @nodoc
 
 @HiveType(typeId: 1, adapterName: 'LaunchesFilterDataAdapter')
-class _$_LaunchesFilterData implements _LaunchesFilterData {
+class _$_LaunchesFilterData extends _LaunchesFilterData {
   const _$_LaunchesFilterData(
       {@HiveField(1) this.searchTerm,
       @HiveField(2) this.year,
-      @HiveField(3) this.success});
+      @HiveField(3) this.success,
+      @HiveField(4) this.onlyWithImages,
+      @HiveField(5) this.hasCrew})
+      : super._();
 
   @override
   @HiveField(1)
@@ -138,10 +169,16 @@ class _$_LaunchesFilterData implements _LaunchesFilterData {
   @override
   @HiveField(3)
   final bool? success;
+  @override
+  @HiveField(4)
+  final bool? onlyWithImages;
+  @override
+  @HiveField(5)
+  final bool? hasCrew;
 
   @override
   String toString() {
-    return 'LaunchesFilterData(searchTerm: $searchTerm, year: $year, success: $success)';
+    return 'LaunchesFilterData(searchTerm: $searchTerm, year: $year, success: $success, onlyWithImages: $onlyWithImages, hasCrew: $hasCrew)';
   }
 
   @override
@@ -152,11 +189,15 @@ class _$_LaunchesFilterData implements _LaunchesFilterData {
             (identical(other.searchTerm, searchTerm) ||
                 other.searchTerm == searchTerm) &&
             (identical(other.year, year) || other.year == year) &&
-            (identical(other.success, success) || other.success == success));
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.onlyWithImages, onlyWithImages) ||
+                other.onlyWithImages == onlyWithImages) &&
+            (identical(other.hasCrew, hasCrew) || other.hasCrew == hasCrew));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, searchTerm, year, success);
+  int get hashCode => Object.hash(
+      runtimeType, searchTerm, year, success, onlyWithImages, hasCrew);
 
   @JsonKey(ignore: true)
   @override
@@ -166,11 +207,14 @@ class _$_LaunchesFilterData implements _LaunchesFilterData {
           this, _$identity);
 }
 
-abstract class _LaunchesFilterData implements LaunchesFilterData {
+abstract class _LaunchesFilterData extends LaunchesFilterData {
   const factory _LaunchesFilterData(
       {@HiveField(1) final String? searchTerm,
       @HiveField(2) final String? year,
-      @HiveField(3) final bool? success}) = _$_LaunchesFilterData;
+      @HiveField(3) final bool? success,
+      @HiveField(4) final bool? onlyWithImages,
+      @HiveField(5) final bool? hasCrew}) = _$_LaunchesFilterData;
+  const _LaunchesFilterData._() : super._();
 
   @override
   @HiveField(1)
@@ -181,6 +225,12 @@ abstract class _LaunchesFilterData implements LaunchesFilterData {
   @override
   @HiveField(3)
   bool? get success;
+  @override
+  @HiveField(4)
+  bool? get onlyWithImages;
+  @override
+  @HiveField(5)
+  bool? get hasCrew;
   @override
   @JsonKey(ignore: true)
   _$$_LaunchesFilterDataCopyWith<_$_LaunchesFilterData> get copyWith =>

@@ -20,19 +20,25 @@ class LaunchesFilterDataAdapter extends TypeAdapter<_$_LaunchesFilterData> {
       searchTerm: fields[1] as String?,
       year: fields[2] as String?,
       success: fields[3] as bool?,
+      onlyWithImages: fields[4] as bool?,
+      hasCrew: fields[5] as bool?,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_LaunchesFilterData obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(5)
       ..writeByte(1)
       ..write(obj.searchTerm)
       ..writeByte(2)
       ..write(obj.year)
       ..writeByte(3)
-      ..write(obj.success);
+      ..write(obj.success)
+      ..writeByte(4)
+      ..write(obj.onlyWithImages)
+      ..writeByte(5)
+      ..write(obj.hasCrew);
   }
 
   @override
