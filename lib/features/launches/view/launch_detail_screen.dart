@@ -46,11 +46,15 @@ class _LaunchDetailScreenState extends ConsumerState<LaunchDetailScreen> {
       appBar: AppBar(
         title: const Text('Launch detail'),
       ),
-      body: Visibility(
-        visible: launch != null,
-        replacement: const Center(child: CircularProgressIndicator()),
-        child: LaunchDetail(launch: launch!),
-      ),
+      body: buildContent(),
     );
+  }
+
+  Widget buildContent() {
+    if (launch == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    return LaunchDetail(launch: launch!);
   }
 }

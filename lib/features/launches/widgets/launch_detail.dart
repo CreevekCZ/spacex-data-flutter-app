@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:spacexplorer/features/launches/mixins/launch_patch_image_mixin.dart';
 import 'package:spacexplorer/features/launches/model/launch/launch.dart';
+import 'package:spacexplorer/features/launches/widgets/launch_detail_row.dart';
 
-class LaunchDetail extends StatelessWidget {
+class LaunchDetail extends StatelessWidget with LaunchPatchImageMixin {
   const LaunchDetail({
     required this.launch,
     super.key,
@@ -12,23 +14,30 @@ class LaunchDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             buildHeader(context),
             const SizedBox(height: 20),
-            Text(
-              'Launch Date: ${launch.formatedDate}',
-              style: Theme.of(context).textTheme.bodyLarge!,
-            ),
-            Text(
-              'Launch id: ${launch.id}',
-              style: Theme.of(context).textTheme.bodyLarge!,
-            ),
-            Text(
-              'Details: ${launch.details ?? 'No details'}',
-              style: Theme.of(context).textTheme.bodyLarge!,
+            LaunchDetailRow(label: 'Launch date', value: launch.formatedDate),
+            LaunchDetailRow(label: 'Launch id', value: launch.id),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Details: ',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  launch.details ?? 'No details',
+                  style: Theme.of(context).textTheme.bodyLarge!,
+                ),
+              ],
             ),
           ],
         ),
@@ -42,20 +51,12 @@ class LaunchDetail extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (launch.smallPatchUrl != null)
-            Row(
-              children: [
-                Hero(
-                  tag: launch.hashCode,
-                  child: Image.network(
-                    launch.smallPatchUrl!,
-                    fit: BoxFit.fitHeight,
-                    width: 150,
-                  ),
-                ),
-                const SizedBox(width: 20),
-              ],
-            ),
+          buildPatch(
+            context,
+            launch: launch,
+            width: 150,
+            displayMissingImage: false,
+          ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

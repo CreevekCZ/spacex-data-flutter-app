@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:spacexplorer/core/helpers/interfaces/identifiable.dart';
+import 'package:spacexplorer/core/model/exceptions/api_exception.dart';
 
 abstract class BaseRepository<T extends Identifiable> {
   BaseRepository(
@@ -17,24 +18,24 @@ abstract class BaseRepository<T extends Identifiable> {
   Future<List<T>> resolveListResponse(StreamedResponse response) async {
     final List<T> items = [];
 
-    final rawJson = await response.stream.bytesToString();
-    final json = jsonDecode(rawJson);
-
     if (response.statusCode == 200) {
+      final rawJson = await response.stream.bytesToString();
+      final json = jsonDecode(rawJson);
       items.addAll(List.from(json).map((json) => decoder(json)));
+    } else {
+      throw ApiException(response: response);
     }
 
     return items;
   }
 
   Future<T> resolveSingleResponse(StreamedResponse response) async {
-    final rawJson = await response.stream.bytesToString();
-    final json = jsonDecode(rawJson);
-
     if (response.statusCode == 200) {
+      final rawJson = await response.stream.bytesToString();
+      final json = jsonDecode(rawJson);
       return decoder(json);
     } else {
-      throw Exception('Failed to load item');
+      throw ApiException(response: response);
     }
   }
 }

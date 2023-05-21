@@ -18,6 +18,30 @@ class LaunchesState with _$LaunchesState {
 
   const LaunchesState._();
 
+  LaunchesState copyWithAddOrUpdatedLaunch(Launch launch) {
+    bool isNew = false;
+
+    final updatedLaunches = launches.map((item) {
+      if (item.id == launch.id) {
+        isNew = true;
+        return launch;
+      }
+
+      return item;
+    }).toList();
+
+    if (!isNew) {
+      updatedLaunches
+        ..add(launch)
+        ..sort((a, b) => b.dateLocal.compareTo(a.dateLocal));
+    }
+
+    return copyWith(
+      launches: updatedLaunches,
+      updatedAt: DateTime.now(),
+    );
+  }
+
   Launch? getLaunchById(String id) {
     return launches.firstWhereOrNull(
       (launch) => launch.id == id,

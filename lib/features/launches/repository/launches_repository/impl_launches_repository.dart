@@ -13,11 +13,7 @@ class ImplLaunchesRepository extends LaunchesRepository {
     try {
       final response = await client.send(request);
 
-      if (response.statusCode == 200) {
-        return resolveListResponse(response);
-      } else {
-        throw Exception('Failed to load launches');
-      }
+      return resolveListResponse(response);
     } catch (_) {
       rethrow;
     }
@@ -26,13 +22,12 @@ class ImplLaunchesRepository extends LaunchesRepository {
   @override
   Future<Launch?> getById(String indetifier) async {
     final request = Request('GET', Uri.parse('/v4/launches/$indetifier'));
+    try {
+      final response = await client.send(request);
 
-    final response = await client.send(request);
-
-    if (response.statusCode == 200) {
       return resolveSingleResponse(response);
-    } else {
-      throw Exception('Failed to load launch');
+    } catch (_) {
+      rethrow;
     }
   }
 }
