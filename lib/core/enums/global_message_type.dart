@@ -1,0 +1,4 @@
+enum GlobalMessageType {
+  snackBar,
+  dialog,
+}
