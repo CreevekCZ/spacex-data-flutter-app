@@ -36,6 +36,7 @@ class AppSetup {
 
     await Future.wait([
       Hive.openBox<LaunchesState>('launchesState'),
+      Hive.openBox<CrewsState>('crewsState'),
     ]);
   }
 
