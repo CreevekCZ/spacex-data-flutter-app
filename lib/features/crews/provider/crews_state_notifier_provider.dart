@@ -78,6 +78,10 @@ class CrewsStateNotifier extends StateNotifier<CrewsState> {
     }
   }
 
+  Future<void> filter(CrewsFilterData filterData) async {
+    await _updateState(crewsFilterData: filterData);
+  }
+
   Future<void> _updateState({
     List<Crew>? crews,
     CrewsFilterData? crewsFilterData,

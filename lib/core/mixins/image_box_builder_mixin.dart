@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:spacexplorer/features/launches/model/launch/launch.dart';
 
-mixin LaunchPatchImageMixin on Widget {
+mixin ImageBoxBuilderMixin on Widget {
   Widget _buildMissingImage({
     double width = 50,
     bool displayMissingImage = true,
@@ -15,11 +14,11 @@ mixin LaunchPatchImageMixin on Widget {
 
   Widget buildPatch(
     BuildContext context, {
-    required Launch launch,
+    required String? imageUrl,
     double width = 50,
     bool displayMissingImage = true,
   }) {
-    if (launch.smallPatchUrl == null) {
+    if (imageUrl == null) {
       return _buildMissingImage(
         width: width,
         displayMissingImage: displayMissingImage,
@@ -27,9 +26,9 @@ mixin LaunchPatchImageMixin on Widget {
     }
 
     return Hero(
-      tag: launch.hashCode,
+      tag: imageUrl.hashCode,
       child: CachedNetworkImage(
-        imageUrl: launch.smallPatchUrl!,
+        imageUrl: imageUrl,
         fit: BoxFit.fitHeight,
         width: width,
         progressIndicatorBuilder: (context, url, progress) =>

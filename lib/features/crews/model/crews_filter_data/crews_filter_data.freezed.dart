@@ -110,9 +110,10 @@ class __$$_CrewsFilterDataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 @HiveType(typeId: 8, adapterName: 'CrewsFilterDataAdapter')
-class _$_CrewsFilterData implements _CrewsFilterData {
+class _$_CrewsFilterData extends _CrewsFilterData {
   const _$_CrewsFilterData(
-      {@HiveField(0) this.searchTerm, @HiveField(1) this.agency});
+      {@HiveField(0) this.searchTerm, @HiveField(1) this.agency})
+      : super._();
 
   factory _$_CrewsFilterData.fromJson(Map<String, dynamic> json) =>
       _$$_CrewsFilterDataFromJson(json);
@@ -157,10 +158,11 @@ class _$_CrewsFilterData implements _CrewsFilterData {
   }
 }
 
-abstract class _CrewsFilterData implements CrewsFilterData {
+abstract class _CrewsFilterData extends CrewsFilterData {
   const factory _CrewsFilterData(
       {@HiveField(0) final String? searchTerm,
       @HiveField(1) final String? agency}) = _$_CrewsFilterData;
+  const _CrewsFilterData._() : super._();
 
   factory _CrewsFilterData.fromJson(Map<String, dynamic> json) =
       _$_CrewsFilterData.fromJson;

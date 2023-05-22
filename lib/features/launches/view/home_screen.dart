@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:spacexplorer/core/widgets/unfocuser.dart';
+import 'package:spacexplorer/features/crews/view/crews_page.dart';
 import 'package:spacexplorer/features/launches/view/launches_page.dart';
-import 'package:spacexplorer/features/launches/widgets/confused_banner.dart';
 
 class HomeScreen extends HookConsumerWidget {
   const HomeScreen({super.key});
@@ -58,7 +58,7 @@ class HomeScreen extends HookConsumerWidget {
             controller: pageController,
             children: const [
               LaunchesPage(),
-              ConfusedBanner(),
+              CrewsPage(),
             ],
           ),
         ),

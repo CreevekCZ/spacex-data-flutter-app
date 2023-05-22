@@ -15,5 +15,7 @@ class CrewsFilterData with _$CrewsFilterData {
   factory CrewsFilterData.fromJson(Map<String, dynamic> json) =>
       _$CrewsFilterDataFromJson(json);
 
-      
+  const CrewsFilterData._();
+
+  bool get isFilterActive => searchTerm != null || agency != null;
 }

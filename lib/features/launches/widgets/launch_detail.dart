@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:spacexplorer/features/launches/mixins/launch_patch_image_mixin.dart';
+import 'package:spacexplorer/core/mixins/image_box_builder_mixin.dart';
 import 'package:spacexplorer/features/launches/model/launch/launch.dart';
 import 'package:spacexplorer/features/launches/widgets/launch_detail_row.dart';
 
-class LaunchDetail extends StatelessWidget with LaunchPatchImageMixin {
+class LaunchDetail extends StatelessWidget with ImageBoxBuilderMixin {
   const LaunchDetail({
     required this.launch,
     super.key,
@@ -53,7 +53,7 @@ class LaunchDetail extends StatelessWidget with LaunchPatchImageMixin {
         children: [
           buildPatch(
             context,
-            launch: launch,
+            imageUrl: launch.smallPatchUrl,
             width: 150,
             displayMissingImage: false,
           ),

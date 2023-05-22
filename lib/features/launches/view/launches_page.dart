@@ -36,6 +36,10 @@ class _LaunchesPageState extends ConsumerState<LaunchesPage> {
             titleTextStyle: Theme.of(context).textTheme.headlineMedium!,
             actions: [
               IconButton(
+                icon: const Icon(Icons.refresh),
+                onPressed: () => launchesNotifier.getAll(),
+              ),
+              IconButton(
                 icon: Icon(
                   launchesState.filterData.isFilterActive
                       ? Icons.filter_alt_off

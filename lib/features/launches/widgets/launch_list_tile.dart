@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:spacexplorer/core/mixins/image_box_builder_mixin.dart';
 import 'package:spacexplorer/core/routing/routes.dart';
-import 'package:spacexplorer/features/launches/mixins/launch_patch_image_mixin.dart';
 import 'package:spacexplorer/features/launches/model/launch/launch.dart';
 
-class LaunchListTile extends StatelessWidget with LaunchPatchImageMixin {
+class LaunchListTile extends StatelessWidget with ImageBoxBuilderMixin {
   const LaunchListTile({
     required this.launch,
     super.key,
@@ -34,7 +34,7 @@ class LaunchListTile extends StatelessWidget with LaunchPatchImageMixin {
           ),
         ],
       ),
-      leading: buildPatch(context, launch: launch),
+      leading: buildPatch(context, imageUrl: launch.smallPatchUrl),
       trailing: Text(
         launch.sucessLabel.toUpperCase(),
         textAlign: TextAlign.right,

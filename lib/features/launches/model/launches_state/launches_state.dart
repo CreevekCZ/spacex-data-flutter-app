@@ -42,6 +42,10 @@ class LaunchesState with _$LaunchesState {
     );
   }
 
+  List<Launch> getLaunchesByIds(List<String> ids) {
+    return launches.where((launch) => ids.contains(launch.id)).toList();
+  }
+
   Launch? getLaunchById(String id) {
     return launches.firstWhereOrNull(
       (launch) => launch.id == id,
